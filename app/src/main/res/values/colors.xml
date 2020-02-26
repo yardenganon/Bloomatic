@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="DarkBlue">#24305E</color>
+    <color name="DarkBlueSofter">#374785</color>
+    <color name="Pink">#A8D0E6</color>
+    <color name="Orangie">#F76C6C</color>
+    <color name="Yellow">#F8E9A1</color>
+    <color name="White">#FFFFFF</color>
+    <color name="WhiteOpacity">#00FFFFFF</color>
+</resources>
