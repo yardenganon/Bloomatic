@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.text.format.DateFormat;
+import android.widget.EditText;
 import android.widget.TimePicker;
 
 import androidx.annotation.NonNull;
@@ -13,6 +14,11 @@ import androidx.fragment.app.DialogFragment;
 import java.util.Calendar;
 
 public class TimePickerForNewIrrigation extends DialogFragment implements TimePickerDialog.OnTimeSetListener {
+
+    int hours;
+    int minutes;
+
+    EditText editText;
 
     @NonNull
     @Override
@@ -25,7 +31,34 @@ public class TimePickerForNewIrrigation extends DialogFragment implements TimePi
 
     @Override
     public void onTimeSet(TimePicker timePicker, int i, int i1) {
-
+        System.out.println("Time Chosen: "+ i+":"+i1);
+        hours = i;
+        minutes = i1;
+        if (editText!=null)
+            editText.setText(i+":"+i1);
     }
 
+    public EditText getEditText() {
+        return editText;
+    }
+
+    public void setEditText(EditText editText) {
+        this.editText = editText;
+    }
+
+    public int getHours() {
+        return hours;
+    }
+
+    public void setHours(int hours) {
+        this.hours = hours;
+    }
+
+    public int getMinutes() {
+        return minutes;
+    }
+
+    public void setMinutes(int minutes) {
+        this.minutes = minutes;
+    }
 }

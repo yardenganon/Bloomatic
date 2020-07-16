@@ -8,6 +8,7 @@ public class Irrigation {
     public String water_level_before;
     public String water_level_after;
     public String timestamp;
+    public long epochTime;
     public boolean isQuickIrrigation;
     public List<String> errors;
     public List<String> logs;
@@ -19,6 +20,12 @@ public class Irrigation {
         this.timestamp = timestamp!=null?timestamp:"";
         isQuickIrrigation = false;
 
+    }
+
+    public Irrigation(String status, String water_amount, long epochTime) {
+        this.status = status;
+        this.water_amount = water_amount;
+        this.epochTime = epochTime;
     }
 
     Irrigation(String water_amount, String water_level, String timestamp, boolean isQuickIrrigation, List<String> errors, List<String> logs){

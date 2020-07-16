@@ -72,7 +72,7 @@ public class SamplesHistoryActivity extends AppCompatActivity {
                                 return new Sample(snapshot.child("soilhumidity").getValue().toString(),
                                         snapshot.child("hum").getValue().toString(),
                                         snapshot.child("temperature").getValue().toString(),
-                                        snapshot.child("timestamp").getValue().toString());
+                                        snapshot.child("timestampSTR").getValue().toString());
                             }
                         })
                         .build();

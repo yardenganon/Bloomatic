@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SamplesHistoryActivity"></activity>
+        <activity android:name=".AddIrrigation"></activity>
+        <activity android:name=".SamplesHistoryActivity" />
         <activity android:name=".SeedMgmtActivity" />
         <activity android:name=".IrrigationCalendar" />
         <activity android:name=".MainActivity">

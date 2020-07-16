@@ -1,5 +1,6 @@
 package com.example.bloomatic;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,7 +10,6 @@ import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.DialogFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -22,10 +22,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 public class IrrigationCalendar extends AppCompatActivity {
 
+    private CalendarView calendarView;
     private RecyclerView recyclerView;
     private DatabaseReference mRef;
     private ArrayList<Sample> mSamples;
@@ -57,7 +57,7 @@ public class IrrigationCalendar extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recycle_irrigations);
         addToolbar = findViewById(R.id.bottomToolBar);
-        CalendarView calendarView = findViewById(R.id.calendarView);
+        calendarView = findViewById(R.id.calendarView);
 
         linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
@@ -68,18 +68,16 @@ public class IrrigationCalendar extends AppCompatActivity {
         addToolbar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Date d = new Date(2019,10,31,18,30);
-                double waterAmountReq = 1.5;
-                DialogFragment timePicker = new TimePickerForNewIrrigation();
-                timePicker.show(getSupportFragmentManager(),"time picker");
-
-
-
+                openAddIrrigation();
             }
         });
 
     }
 
+    public void openAddIrrigation(){
+        Intent intent = new Intent(this,AddIrrigation.class);
+        startActivity(intent);
+    }
     private void fetch() {
         Query query = FirebaseDatabase.getInstance()
                 .getReference()
