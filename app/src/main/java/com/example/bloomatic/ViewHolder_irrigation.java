@@ -25,8 +25,8 @@ public class ViewHolder_irrigation extends RecyclerView.ViewHolder {
     public void setStatus(String val) {
         status.setText(val);
     }
-    public void setWaterAmout(String val) {
+    public void setWaterAmout(double val) {
 
-        water_amount.setText(val);
+        water_amount.setText(String.valueOf(val));
     }
 }

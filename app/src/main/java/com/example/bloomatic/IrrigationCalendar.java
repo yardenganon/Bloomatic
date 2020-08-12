@@ -90,7 +90,7 @@ public class IrrigationCalendar extends AppCompatActivity {
                             @Override
                             public Irrigation parseSnapshot(@NonNull DataSnapshot snapshot) {
                                 return new Irrigation(snapshot.child("status").getValue().toString(),
-                                        snapshot.child("water_amount").getValue().toString(),
+                                        Double.valueOf(snapshot.child("water_amount").getValue().toString()),
                                         snapshot.child("timestamp").getValue().toString());
                             }
                         })

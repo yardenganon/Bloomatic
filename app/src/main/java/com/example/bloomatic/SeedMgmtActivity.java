@@ -191,14 +191,25 @@ public class SeedMgmtActivity extends AppCompatActivity {
 
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-                date.setText(dataSnapshot.child("timestamp").getValue().toString());
-                status.setText(dataSnapshot.child("status").getValue().toString());
-
+                Object timestamp =  dataSnapshot.child("timestamp").getValue();
+                Object statusR = dataSnapshot.child("status").getValue();
+                if (timestamp!=null && statusR!=null) {
+                    date.setText(timestamp.toString());
+                    status.setText(statusR.toString());
+                } else {
+                    date.setText("Updating");
+                    status.setText("-");
+                }
             }
 
             @Override
             public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
+                Object timestamp =  dataSnapshot.child("timestamp").getValue();
+                Object statusR = dataSnapshot.child("status").getValue();
+                if (timestamp!=null && statusR!=null) {
+                    date.setText(timestamp.toString());
+                    status.setText(statusR.toString());
+                }
             }
 
             @Override

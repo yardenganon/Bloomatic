@@ -4,35 +4,35 @@ import java.util.List;
 
 public class Irrigation {
     public String status;
-    public String water_amount;
+    public double water_amount;
     public String water_level_before;
     public String water_level_after;
     public String timestamp;
     public long epochTime;
-    public boolean isQuickIrrigation;
+    public boolean quickIrrigation;
     public List<String> errors;
     public List<String> logs;
 
 
-    public Irrigation(String status, String water_amount, String timestamp) {
+    public Irrigation(String status, double water_amount, String timestamp) {
         this.status = status!=null?status:"";
-        this.water_amount = water_amount!=null?water_amount:"";
+        this.water_amount = water_amount;
         this.timestamp = timestamp!=null?timestamp:"";
-        isQuickIrrigation = false;
+        quickIrrigation = false;
 
     }
 
-    public Irrigation(String status, String water_amount, long epochTime) {
+    public Irrigation(String status, double water_amount, long epochTime) {
         this.status = status;
         this.water_amount = water_amount;
         this.epochTime = epochTime;
     }
 
-    Irrigation(String water_amount, String water_level, String timestamp, boolean isQuickIrrigation, List<String> errors, List<String> logs){
+    Irrigation(double water_amount, String water_level, String timestamp, boolean isQuickIrrigation, List<String> errors, List<String> logs){
         this.water_amount = water_amount;
         this.water_level_before = water_level;
         this.timestamp = timestamp;
-        this.isQuickIrrigation = isQuickIrrigation;
+        this.quickIrrigation = isQuickIrrigation;
         for (String s : errors)
             this.errors.add(s);
         for (String l : logs)
@@ -40,18 +40,18 @@ public class Irrigation {
     }
 
     public boolean isQuickIrrigation() {
-        return isQuickIrrigation;
+        return quickIrrigation;
     }
 
     public void setQuickIrrigation(boolean quickIrrigation) {
-        isQuickIrrigation = quickIrrigation;
+        this.quickIrrigation = quickIrrigation;
     }
 
-    public String getWater_amount() {
+    public double getWater_amount() {
         return water_amount;
     }
 
-    public void setWater_amount(String water_amount) {
+    public void setWater_amount(double water_amount) {
         this.water_amount = water_amount;
     }
 
