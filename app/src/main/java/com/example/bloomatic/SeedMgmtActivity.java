@@ -53,7 +53,7 @@ public class SeedMgmtActivity extends AppCompatActivity {
                 TextView quickIrrigation_txt = findViewById(R.id.textView_quickIrr);
                 if (isIrrigating.equals("no")){
                     quickIrrigation_txt.setText("Quick irrigation");
-                    quickIrrigation_txt.setTextSize(24);
+                    quickIrrigation_txt.setTextSize(18);
                 }
                 else {
                     quickIrrigation_txt.setText("Irrigation in progress... \npress to stop irrigation");
@@ -86,7 +86,7 @@ public class SeedMgmtActivity extends AppCompatActivity {
                     waterPumpRef.child("request").setValue("no");
                     waterPumpRef.child("pause").setValue("yes");
                     quickIrrigation_txt.setText("Quick irrigation");
-                    quickIrrigation_txt.setTextSize(24);
+                    quickIrrigation_txt.setTextSize(18);
                 }
             }
         });

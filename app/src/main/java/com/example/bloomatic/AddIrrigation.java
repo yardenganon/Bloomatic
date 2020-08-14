@@ -1,6 +1,5 @@
 package com.example.bloomatic;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -80,7 +79,7 @@ public class AddIrrigation extends AppCompatActivity {
                     calendar.set(Calendar.YEAR, year);
                     calendar.set(Calendar.MONTH, month);
                     calendar.set(Calendar.DAY_OF_MONTH, day);
-                    calendar.set(Calendar.HOUR, hours);
+                    calendar.set(Calendar.HOUR_OF_DAY, hours);
                     calendar.set(Calendar.MINUTE, minutes);
                     calendar.set(Calendar.SECOND, 0);
                     calendar.set(Calendar.MILLISECOND, 0);
@@ -97,7 +96,7 @@ public class AddIrrigation extends AppCompatActivity {
                             long unixTime = System.currentTimeMillis() / 1000L; // Local now
                             long diff = calculateTimeDiff(unixTime, serverTimestamp[0]); // Diff between now local to now server
                             System.out.println("Chosen Epoch : "+epoch);
-                            long timePlusOffset = epoch + diff - 43200L; // Add diff to chosen time & add 43200L - 12 Hours back offset
+                            long timePlusOffset = epoch + diff; // Add diff to chosen time
                             System.out.println("Epoch + diff : " + timePlusOffset);
 
                             Irrigation irrigation = new Irrigation("Open", Integer.parseInt(waterAmountEditText.getText().toString()),
@@ -105,8 +104,7 @@ public class AddIrrigation extends AppCompatActivity {
                             mRef.child(String.valueOf(timePlusOffset)).setValue(irrigation);
 
                             Toast.makeText(getApplicationContext(), "Irrigation Scheduled", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(AddIrrigation.this,IrrigationCalendar.class);
-                            startActivity(intent);
+                            finish();
                         }
 
                         @Override

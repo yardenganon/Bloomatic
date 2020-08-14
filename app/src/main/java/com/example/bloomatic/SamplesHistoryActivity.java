@@ -1,9 +1,11 @@
 package com.example.bloomatic;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -29,6 +31,8 @@ public class SamplesHistoryActivity extends AppCompatActivity {
     private LinearLayoutManager linearLayoutManager;
     private FirebaseRecyclerAdapter adapter;
 
+    private ImageView graphBtn;
+
 
     @Override
     protected void onStart() {
@@ -50,6 +54,15 @@ public class SamplesHistoryActivity extends AppCompatActivity {
         mRef = FirebaseDatabase.getInstance().getReference();
 
         recyclerView = findViewById(R.id.recycle);
+        graphBtn = findViewById(R.id.graphBtn);
+
+        graphBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SamplesHistoryActivity.this,SamplesGraph.class);
+                startActivity(intent);
+            }
+        });
 
         linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
@@ -61,7 +74,7 @@ public class SamplesHistoryActivity extends AppCompatActivity {
     private void fetch() {
         Query query = FirebaseDatabase.getInstance()
                 .getReference()
-                .child("SensorSamples").limitToLast(50);
+                .child("SensorSamples").limitToLast(20);
 
         FirebaseRecyclerOptions<Sample> options =
                 new FirebaseRecyclerOptions.Builder<Sample>()

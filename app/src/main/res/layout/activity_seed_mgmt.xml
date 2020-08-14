@@ -9,6 +9,26 @@
     tools:context=".SeedMgmtActivity">
 
     <ImageView
+        android:id="@+id/bg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/background" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="#7A474747"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
         android:id="@+id/imageView9"
         android:layout_width="0dp"
         android:layout_height="60dp"
@@ -99,8 +119,8 @@
 
             <ImageView
                 android:id="@+id/imageView22"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_marginEnd="24dp"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView11"
                 app:layout_constraintEnd_toEndOf="@+id/imageView11"
@@ -120,8 +140,8 @@
 
             <ImageView
                 android:id="@+id/imageView10"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_marginEnd="24dp"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView21"
                 app:layout_constraintEnd_toEndOf="@+id/imageView21"
@@ -164,7 +184,7 @@
                 android:paddingLeft="16dp"
                 android:paddingRight="16dp"
                 android:text="Warning, make sure system status is 'Okay' and water container is filled before performing quick irrigation"
-                android:textColor="@color/DarkBlue"
+                android:textColor="@color/White"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -204,7 +224,7 @@
                 android:gravity="center"
                 android:text="Quick irrigation"
                 android:textColor="@android:color/background_light"
-                android:textSize="24dp"
+                android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView12"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/imageView12"
@@ -243,7 +263,7 @@
                 android:fontFamily="@font/quicksand_light"
                 android:text="Unavailable"
                 android:textColor="@color/White"
-                android:textSize="24sp"
+                android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/imageView11"
                 app:layout_constraintTop_toBottomOf="@+id/textView6" />
@@ -254,7 +274,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/quicksand_light"
                 android:textColor="@color/White"
-                android:textSize="24sp"
+                android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/imageView21"
                 app:layout_constraintTop_toBottomOf="@+id/textView14" />
